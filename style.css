@@ -56,8 +56,8 @@
             transform: rotateY(180deg);
         }
 
-        .superior {
-            background: linear-gradient(black, gray);
+        .frontal {
+            background: linear-gradient(rgb(14, 13, 35), gray);
         }
 
         .nuevo-juego {
