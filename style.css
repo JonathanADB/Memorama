@@ -1,5 +1,5 @@
 
-      /*   :root {
+        :root {
             --w: calc(70vw / 6);
             --h: calc(70vh / 4);
         }
@@ -12,7 +12,7 @@
             padding: 0;
             margin: 0;
             perspective: 1000;
-            background: powderblue;
+            background: rgb(232, 242, 243);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
@@ -26,8 +26,8 @@
             display: inline-block;
         }
 
-        .area-tarjeta,
-        .tarjeta,
+        .area-carta,
+        .carta,
         .cara {
             cursor: pointer;
             width: var(--w);
@@ -35,7 +35,7 @@
             height: var(--h);
         }
 
-        .tarjeta {
+        .carta {
             position: relative;
             transform-style: preserve-3d;
             animation: iniciar 5s;
@@ -52,17 +52,17 @@
         }
 
         .trasera {
-            background-color: lightcyan;
+            background-color: rgb(59, 153, 153);
             transform: rotateY(180deg);
         }
 
         .superior {
-            background: linear-gradient(orange, darkorange);
+            background: linear-gradient(black, gray);
         }
 
         .nuevo-juego {
             cursor: pointer;
-            background: linear-gradient(orange, darkorange);
+            background: linear-gradient(rgb(70, 125, 235), rgb(106, 85, 60));
             padding: 20px;
             border-radius: 50px;
             border: white 5px solid;
@@ -80,7 +80,7 @@
             100% {
                 transform: rotateY(0deg);
             }
-        }  */
+        }  
 
 
 
@@ -88,80 +88,3 @@
 
 
 
-
-        :root {
-            --w: calc(70vw / 6);
-            --h: calc(70vh / 4);
-        }
-
-        *{
-            transition: all 2s;
-        }
-
-        body{
-            margin: 0;
-            padding: 0;
-            -webkit-perspective: 1000;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            
-            align-items: center;
-            background-color: rgb(0, 67, 126);
-        }
-
-
-        .tablero {
-            background-color: aliceblue;
-            height: 50rem;
-            width: 50rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-       .area-tarjeta, .tarjeta{
-
-            background-color: rgb(140, 0, 255);
-            height: 30rem;
-            width: 30rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .tarjeta{
-            position: relative;
-            background-color: rgb(208, 170, 160);
-            height: 20rem;
-            width: 20rem;
-            transform-style: preserve-3d;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        
-
-        .cara{
-            position: absolute;
-            background-color: orange;
-            height: 10rem;
-            width: 10rem;
-            transform-style: preserve-3d;
-            backface-visibility: hidden;
-        }
-        
-        .area-tarjeta:hover .tarjeta{
-            transform: rotateY(180deg);
-        }
-
-        .trasera{
-            background-color: lightseagreen;
-            transform: rotateY(180deg);
-
-        }
-
-        .superior{
-            background-color: red;
-        }

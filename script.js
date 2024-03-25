@@ -1,52 +1,64 @@
+const generarTablero = document.querySelector(".nuevo-juego")
+
 let cantidadTarjetas = 24
 
 let iconos = []
 let selecciones = []
 
-generarTablero()
-
-function cargarIconos() {
+function cargarIconos () {
     iconos = [
-        '<i class="fas fa-star"></i>',
-        '<i class="far fa-star"></i>',
-        '<i class="fas fa-star-of-life"></i>',
-        '<i class="fas fa-star-and-crescent"></i>',
-        '<i class="fab fa-old-republic"></i>',
-        '<i class="fab fa-galactic-republic"></i>',
-        '<i class="fas fa-sun"></i>',
-        '<i class="fas fa-stroopwafel"></i>',
-        '<i class="fas fa-dice"></i>',
-        '<i class="fas fa-chess-knight"></i>',
-        '<i class="fas fa-chess"></i>',
-        '<i class="fas fa-dice-d20"></i>',
+        '🇨🇺',
+        '🇮🇨',
+        '🇨🇴',
+        '🇦🇷',
+        '🇪🇸',
+        '🇯🇵',
+        '🇽🇰',
+        '🇦🇩',
+        '🇦🇪',
+        '🇧🇴',
+        '🇨🇨',
+        '🇨🇱',
+        '🇵🇱'
     ]
 }
 
-function generarTablero() {
+generarTablero.addEventListener ("click", () => {
+ 
     cargarIconos()
     selecciones = []
     let tablero = document.getElementById("tablero")
     let tarjetas = []
+
+    // Limpiamos el tablero antes de agregar nuevas cartas
+    tablero.innerHTML = '';
+    
     for (let i = 0; i < cantidadTarjetas; i++) {
-        tarjetas.push(`
-        <div class="area-tarjeta" onclick="seleccionarTarjeta(${i})">
-            <div class="tarjeta" id="tarjeta${i}">
+        let nuevaCarta = document.createElement('div');
+        nuevaCarta.classList.add('area-carta');
+        nuevaCarta.addEventListener('click', () => seleccionarTarjeta(i));
+        
+        nuevaCarta.innerHTML = `
+            <div class="carta" id="tarjeta${i}">
                 <div class="cara trasera" id="trasera${i}">
                     ${iconos[0]}
                 </div>
                 <div class="cara superior">
-                    <i class="far fa-question-circle"></i>
+                    ❔
                 </div>
-            </div>
-        </div>        
-        `)
+            </div>`;
+        
+        tablero.appendChild(nuevaCarta);
+        
+
         if (i % 2 == 1) {
             iconos.splice(0, 1)
         }
     }
-    tarjetas.sort(() => Math.random() - 0.5)
-    tablero.innerHTML = tarjetas.join(" ")
-}
+  
+})
+
+
 
 function seleccionarTarjeta(i) {
     let tarjeta = document.getElementById("tarjeta" + i)
